@@ -18,4 +18,16 @@ class SImages{
   static const String deliveredEmailIllustration = "assets/images/animations/deliveredMail.gif";
   static const String staticSuccessIllustration = "assets/images/animations/success_mail_delivery.gif";
 
+  // -- Promo Banners
+  static const String promoBanner1 ="assets/images/banners/promo1.jpg";
+  static const String promoBanner2 ="assets/images/banners/promo2.jpg";
+  static const String promoBanner3 ="assets/images/banners/promo3.jpg";
+
+  // -- Product Categories
+  static const String cShoes = "assets/icons/categories/shoes_icons.png";
+
+
+  // -- Products
+ static const String pShoes = "assets/images/Products/pair-trainers.jpg";
+
 }

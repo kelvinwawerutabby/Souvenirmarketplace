@@ -16,7 +16,7 @@ class SHomeCategories extends StatelessWidget {
           itemCount: 6,
           scrollDirection: Axis.horizontal,
           itemBuilder: (_, index) {
-            return  SVerticalImageText(image: SImages.staticSuccessIllustration, title: 'Shoes', onTap: (){});
+            return  SVerticalImageText(image: SImages.cShoes, title: 'Shoes', onTap: (){});
           }),
     );
   }

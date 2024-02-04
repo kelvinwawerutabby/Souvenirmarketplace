@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../../utils/constants/colors.dart';
 import '../../../../../utils/constants/sizes.dart';
 class SRoundedContainer extends StatelessWidget {
@@ -36,8 +35,9 @@ class SRoundedContainer extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor,
         borderRadius: BorderRadius.circular(radius),
-        border: showBorder? Border.all(color: borderColor) : null
+        border: showBorder? Border.all(color: borderColor) : null,
       ),
+      child: child,
     );
   }
 }

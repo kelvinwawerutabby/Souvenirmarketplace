@@ -11,7 +11,7 @@ class SApp extends StatelessWidget {
       themeMode: ThemeMode.system,
       theme: SAppTheme.lightTheme,
       darkTheme: SAppTheme.darkTheme,
-      home: const OnBoardingScreen()
+      home: const OnBoardingScreen(),
     );
   }
 }

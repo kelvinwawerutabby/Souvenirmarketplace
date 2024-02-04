@@ -7,23 +7,21 @@ import '../../../utils/constants/sizes.dart';
 
 class SCircularIcon extends StatelessWidget {
   const SCircularIcon({
-    Key? key,
-    required this.dark,
+    super.key,
     this.width,
     this.height,
     this.size = SSizes.lg,
     required this.icon,
     this.color,
     this.backgroundColor,
-    required this.onPressed,
-  }) : super(key: key);
+    this.onPressed,
+  });
 
-  final bool dark;
-  final double? width, height, size;
+  final double ? width, height, size;
   final IconData icon;
   final Color? color;
   final Color? backgroundColor;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -31,16 +29,16 @@ class SCircularIcon extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(100),
         color: backgroundColor != null
-            ? backgroundColor
-            : SHelperFunctions.isDarkMode(context)
+              ? backgroundColor!
+        :SHelperFunctions.isDarkMode(context)
             ? SColors.black.withOpacity(0.9)
             : SColors.white.withOpacity(0.9),
+        borderRadius: BorderRadius.circular(100),
       ),
       child: IconButton(
-        onPressed: onPressed,
-        icon: Icon(icon, color: color),
+        onPressed: () {},
+        icon:  Icon(icon,color: color,size: size,),
       ),
     );
   }

@@ -1,16 +1,13 @@
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:eccomerceapp/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:eccomerceapp/common/widgets/products/product_cards/product_card_vertical.dart';
 import 'package:eccomerceapp/features/shop/screens/home/widget/home_appbar.dart';
 import 'package:eccomerceapp/features/shop/screens/home/widget/home_categories.dart';
 import 'package:eccomerceapp/features/shop/screens/home/widget/promo_slider.dart';
-import 'package:eccomerceapp/utils/constants/colors.dart';
 import 'package:eccomerceapp/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../common/widgets/custom_shapes/containers/curved_edges/search_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
-import '../../../../common/widgets/images/s_rounded_image.dart';
+import '../../../../common/widgets/layouts/grid_layout.dart';
 import '../../../../common/widgets/texts/section_heading.dart';
 import '../../../../utils/constants/sizes.dart';
 
@@ -19,12 +16,12 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Scaffold(
+    return  Scaffold(
       body: SingleChildScrollView(
         child: Column(
           children: [
             ///--header
-            SPrimaryHeaderContainer(
+            const SPrimaryHeaderContainer(
               child: Column(
                 children: [
                   /// Appbar--
@@ -42,8 +39,10 @@ class HomeScreen extends StatelessWidget {
                       children: [
                         /// --- Heading
                         SSectionHeading(
-                            title: 'Popular Categories',
-                            showActionButton: false, textColor: Colors.white,),
+                          title: 'Popular Categories',
+                          showActionButton: false,
+                          textColor: Colors.white,
+                        ),
                         SizedBox(height: SSizes.spaceBtwItems),
 
                         ///categories
@@ -58,27 +57,24 @@ class HomeScreen extends StatelessWidget {
 
             /// Body
             Padding(
-              padding: EdgeInsets.all(SSizes.defaultSpace),
-              child: Column(
-                children: [
-                  SPromoSlider(banners: [SImages.onBoardingImage1,SImages.onBoardingImage2,SImages.onBoardingImage3]),
-                  SizedBox(height: SSizes.spaceBtwSections),
-                  SProductCardVertical(),
-                ],
-              )
+                padding: EdgeInsets.all(SSizes.defaultSpace),
+                child: Column(
+                  children: [
+                    const SPromoSlider(banners: [
+                      SImages.promoBanner1,
+                      SImages.promoBanner2,
+                      SImages.promoBanner3
+                    ]),
+                    const SizedBox(height: SSizes.spaceBtwSections),
+                    SGridLayout(itemCount: 2, itemBuilder: (_, index) => const SProductCardVertical()),
 
-            ),
+                  ],
+                )),
           ],
         ),
       ),
     );
   }
 }
-
-
-
-
-
-
 
 
