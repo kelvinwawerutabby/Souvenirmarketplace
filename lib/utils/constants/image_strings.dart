@@ -25,9 +25,20 @@ class SImages{
 
   // -- Product Categories
   static const String cShoes = "assets/icons/categories/shoes_icons.png";
+  static const String sClothes = "assets/icons/categories/clothes.png";
+  static const String sShoesStore = "assets/icons/categories/shoes_icons.png";
+  static const String sSmartPhone= "assets/icons/categories/smartphone-call_15874.png";
+
 
 
   // -- Products
  static const String pShoes = "assets/images/Products/pair-trainers.jpg";
+ static const String product_1 ="assets/images/Products/product_1.jpg";
+  static const String product_2 ="assets/images/Products/product_2.jpg";
+  static const String product_3 ="assets/images/Products/product_3.jpg";
+
+
+  // -- Person
+ static const String user = "assets/images/user/user.jpg";
 
 }

@@ -4,7 +4,6 @@ import 'package:eccomerceapp/features/shop/screens/home/widget/home_categories.d
 import 'package:eccomerceapp/features/shop/screens/home/widget/promo_slider.dart';
 import 'package:eccomerceapp/utils/constants/image_strings.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../common/widgets/custom_shapes/containers/curved_edges/search_container.dart';
 import '../../../../common/widgets/custom_shapes/containers/primary_header_container.dart';
 import '../../../../common/widgets/layouts/grid_layout.dart';
@@ -38,18 +37,15 @@ class HomeScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         /// --- Heading
-                        SSectionHeading(
-                          title: 'Popular Categories',
-                          showActionButton: false,
-                          textColor: Colors.white,
-                        ),
+                        SSectionHeading(title: 'Popular products'),
                         SizedBox(height: SSizes.spaceBtwItems),
 
                         ///categories
                         SHomeCategories()
                       ],
                     ),
-                  )
+                  ),
+                  SizedBox(height: SSizes.spaceBtwSections,)
                   // Add the rest of your content here
                 ],
               ),
@@ -57,7 +53,7 @@ class HomeScreen extends StatelessWidget {
 
             /// Body
             Padding(
-                padding: EdgeInsets.all(SSizes.defaultSpace),
+                padding: const EdgeInsets.all(SSizes.defaultSpace),
                 child: Column(
                   children: [
                     const SPromoSlider(banners: [

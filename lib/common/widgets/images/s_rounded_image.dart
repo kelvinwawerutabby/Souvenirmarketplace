@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 class SRoundedImage extends StatelessWidget {
   const SRoundedImage({
@@ -9,7 +8,7 @@ class SRoundedImage extends StatelessWidget {
     required this.imageUrl,
     this.applyImageRadius = true,
     this.border,
-    this.backgroundColor = SColors.light,
+    this.backgroundColor,
     this.fit,
     this.padding,
     this.isNetworkImage = false,
@@ -21,7 +20,7 @@ class SRoundedImage extends StatelessWidget {
   final String imageUrl;
   final bool applyImageRadius;
   final BoxBorder? border;
-  final Color backgroundColor;
+  final Color ? backgroundColor;
   final BoxFit? fit;
   final EdgeInsetsGeometry? padding;
   final bool isNetworkImage;

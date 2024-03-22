@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-
 import '../../../utils/constants/sizes.dart';
-import '../products/product_cards/product_card_vertical.dart';
-
 class SGridLayout extends StatelessWidget {
   const SGridLayout({
     super.key,
@@ -22,11 +19,11 @@ class SGridLayout extends StatelessWidget {
         padding: EdgeInsets.zero,
         shrinkWrap: true,
         physics: const NeverScrollableScrollPhysics(),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             mainAxisSpacing: SSizes.gridViewSpacing,
             crossAxisSpacing: SSizes.gridViewSpacing,
-            mainAxisExtent: 288),
+            mainAxisExtent: mainAxisExtent),
         itemBuilder: itemBuilder);
   }
 }

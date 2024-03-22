@@ -1,14 +1,17 @@
 import 'package:eccomerceapp/common/style/shadows.dart';
 import 'package:eccomerceapp/common/widgets/custom_shapes/containers/curved_edges/rounded_container.dart';
 import 'package:eccomerceapp/common/widgets/images/s_rounded_image.dart';
+import 'package:eccomerceapp/features/shop/screens/product_details/product_detail.dart';
 import 'package:eccomerceapp/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
 import '../../../../utils/constants/colors.dart';
+import '../../../../utils/constants/enums.dart';
 import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 import '../../icons/s_circular_icon.dart';
+import '../../texts/brand_title_text.dart';
 import '../../texts/product_price_text.dart';
 import '../../texts/product_title_text.dart';
 
@@ -21,7 +24,7 @@ class SProductCardVertical extends StatelessWidget {
     final dark = SHelperFunctions.isDarkMode(context);
 
     return GestureDetector(
-      onTap: (){},
+     onTap: () => Get.to(() => const ProductDetailScreen()),
       child: Container(
         width: 180,
         padding: const EdgeInsets.all(1),
@@ -62,19 +65,13 @@ class SProductCardVertical extends StatelessWidget {
             const SizedBox(height: SSizes.spaceBtwItems / 2),
 
             //details
-            Padding(padding: const EdgeInsets.only(left: SSizes.sm),
+            const Padding(padding: EdgeInsets.only(left: SSizes.sm),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const SProductTitleText(title: 'Blue Nike  Air shoes', smallSize: true),
-                const SizedBox(height: SSizes.spaceBtwItems / 2),
-                Row(
-                  children: [
-                    Text('Nike',overflow: TextOverflow.ellipsis, maxLines: 1, style: Theme.of(context).textTheme.labelMedium),
-                    const SizedBox(width: SSizes.sm),
-                    const Icon(Iconsax.verify5, color: SColors.primaryColor, size: SSizes.iconXs),
-                  ],
-                ),
+                SProductTitleText(title: 'Blue Nike  Air shoes ', smallSize: true),
+                SizedBox(height: SSizes.spaceBtwItems / 2),
+                SBrandTitleText(title: 'Nike', brandTextSize: TextSizes.small, ),
 
 
               ],
@@ -83,14 +80,16 @@ class SProductCardVertical extends StatelessWidget {
             //
 
             const Spacer(),
+            /// Price Row
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                // Price
+                /// Price
                 const Padding(
                   padding: EdgeInsets.only(left: SSizes.sm),
                   child: SProductPriceText(price: '35.0', ),
                 ),
+                /// Add to Cart Button
                 Container(
                   decoration: const BoxDecoration(
                     color: SColors.dark,
@@ -112,6 +111,8 @@ class SProductCardVertical extends StatelessWidget {
     );
   }
 }
+
+
 
 
 

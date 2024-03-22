@@ -15,18 +15,14 @@ class SPrimaryHeaderContainer extends StatelessWidget {
       child: Container(
         color: SColors.primaryColor,
         padding:  const EdgeInsets.all(0),
-        child:  SizedBox(
-          height: 400,
-              /// -- if [size.isFinite': is not true. in stack] error occurred -> Read README.md file
-          child: Stack(
-            children: [
-              ///Background Custom Shapes
-              child,
-              Positioned( top: -150, right: -250, child: SCircularContainer(backgroundColor: SColors.textWhite.withOpacity(0.1))),
-              Positioned( top: 100, right: -300, child: SCircularContainer(backgroundColor: SColors.textWhite.withOpacity(0.1))),
+        child:  Stack(
+          children: [
+            ///Background Custom Shapes
+            child,
+            Positioned( top: -150, right: -250, child: SCircularContainer(backgroundColor: SColors.textWhite.withOpacity(0.1))),
+            Positioned( top: 100, right: -300, child: SCircularContainer(backgroundColor: SColors.textWhite.withOpacity(0.1))),
 
-            ],
-          ),
+          ],
         ),
       ),
     );

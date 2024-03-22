@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../utils/constants/colors.dart';
 import '../../../utils/constants/sizes.dart';
 import '../../../utils/helpers/helper_functions.dart';
+
 class SVerticalImageText extends StatelessWidget {
   const SVerticalImageText({
-    super.key, required this.image, required this.title, this.textColor = SColors.white, this.backgroundColor = SColors.white, this.onTap,
+    super.key,
+    required this.image,
+    required this.title,
+    this.textColor = SColors.white,
+    this.backgroundColor ,
+    this.onTap,
   });
 
   final String image, title;
@@ -15,7 +21,6 @@ class SVerticalImageText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     final dark = SHelperFunctions.isDarkMode(context);
 
     return GestureDetector(
@@ -30,19 +35,20 @@ class SVerticalImageText extends StatelessWidget {
               height: 56,
               padding: const EdgeInsets.all(SSizes.md),
               decoration: BoxDecoration(
-                  color: backgroundColor ?? (dark ? SColors.black : SColors.white),
-                  borderRadius:
-                  BorderRadius.circular(100)),
-              child:  Center(
+                  color:
+                      backgroundColor ?? (dark ? SColors.black : SColors.white),
+                  borderRadius: BorderRadius.circular(100)),
+              child: Center(
                 child: Image(
-                  image: AssetImage(image), fit: BoxFit.cover, color:dark? SColors.light : SColors.dark,
+                  image: AssetImage(image),
+                  fit: BoxFit.cover,
+                  color: dark ? SColors.light : SColors.dark,
                 ),
               ),
             ),
 
             ///Text
-            const SizedBox(
-                height: SSizes.spaceBtwItems / 2),
+            const SizedBox(height: SSizes.spaceBtwItems / 2),
             SizedBox(
                 width: 55,
                 child: Text(

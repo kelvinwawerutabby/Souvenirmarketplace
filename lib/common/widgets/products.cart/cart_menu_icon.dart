@@ -8,7 +8,7 @@ class SCartCounterIcon extends StatelessWidget {
   });
 
   final VoidCallback onPressed;
-  final Color iconColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {

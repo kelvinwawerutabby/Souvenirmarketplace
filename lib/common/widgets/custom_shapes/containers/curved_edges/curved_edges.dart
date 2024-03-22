@@ -12,14 +12,14 @@ class SCustomCurvedEdges extends CustomClipper<Path> {
     path.quadraticBezierTo(firstCurve.dx, firstCurve.dy, lastCurve.dx, lastCurve.dy);
 
     // Second quadratic Bezier curve
-    final secondFirstCurve = Offset(30, size.height - 20);
+    final secondFirstCurve = Offset(0, size.height - 20);
     final secondLastCurve = Offset(size.width - 30, size.height - 20);
     path.quadraticBezierTo(
         secondFirstCurve.dx, secondFirstCurve.dy, secondLastCurve.dx, secondLastCurve.dy);
 
     // Third quadratic Bezier curve (adjusted)
-    final thirdFirstCurve = Offset(size.width - 30, size.height - 20);
-    final thirdControlPoint1 = Offset(size.width, size.height - 20); // Adjusted control point
+    final thirdFirstCurve = Offset(size.width , size.height - 20);
+    final thirdControlPoint1 = Offset(size.width, size.height ); // Adjusted control point
     path.quadraticBezierTo(
         thirdFirstCurve.dx, thirdFirstCurve.dy, thirdControlPoint1.dx, thirdControlPoint1.dy);
 
