@@ -16,7 +16,7 @@ class SProductTitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text('Blue Sport Air Shoes',
+    return Text('Price',
         style: smallSize ? Theme.of(context).textTheme.labelLarge : Theme.of(context).textTheme.titleSmall,
         overflow: TextOverflow.ellipsis,
         maxLines: maxLines,
