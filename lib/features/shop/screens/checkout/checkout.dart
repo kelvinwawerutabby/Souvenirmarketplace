@@ -2,6 +2,7 @@ import 'package:eccomerceapp/common/widgets/custom_shapes/containers/curved_edge
 import 'package:eccomerceapp/features/shop/screens/cart/widgets/cart_item.dart';
 import 'package:eccomerceapp/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:eccomerceapp/features/shop/screens/checkout/widgets/billing_address_section.dart';
+import 'package:eccomerceapp/features/shop/screens/checkout/widgets/billing_amount_section.dart';
 import 'package:eccomerceapp/features/shop/screens/checkout/widgets/billing_payment_section.dart';
 import 'package:eccomerceapp/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ class CheckoutScreen extends StatelessWidget {
                     Divider(),
                     SizedBox(height: SSizes.spaceBtwItems),
                     ///  Payment Methods
-                    SBillingAddressSection(),
+                    SBillingAmountSection(),
                     SizedBox(height: SSizes.spaceBtwItems),
                     ///  Address
                   ],
