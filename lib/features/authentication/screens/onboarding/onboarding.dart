@@ -60,11 +60,13 @@ class OnBoardingNextButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final dark = SHelperFunctions.isDarkMode(context);
     return Positioned(
-      right: SSizes.defaultSpace,
+        right: SSizes.defaultSpace,
         bottom: SDeviceUtils.getBottomNavigationBarHeight(),
         child: ElevatedButton(
           onPressed: () => OnBoardingController.instance.nextPage(),
-          style: ElevatedButton.styleFrom(shape: const CircleBorder(), backgroundColor: dark? SColors.primaryColor: Colors.black),
+          style: ElevatedButton.styleFrom(
+              shape: const CircleBorder(),
+              backgroundColor: dark ? SColors.primaryColor : Colors.black),
           child: const Icon(Iconsax.arrow_right_3),
         ));
   }
@@ -86,8 +88,8 @@ class OnBoardingDotNavigation extends StatelessWidget {
         count: 3,
         controller: controller.pageController,
         onDotClicked: controller.dotNavigationClick,
-        effect:  ExpandingDotsEffect(
-            activeDotColor: dark? SColors.light: SColors.dark, dotHeight: 6),
+        effect: ExpandingDotsEffect(
+            activeDotColor: dark ? SColors.light : SColors.dark, dotHeight: 6),
       ),
     );
   }
@@ -104,7 +106,10 @@ class OnBoardingSkip extends StatelessWidget {
         top: SDeviceUtils.getAppBarHeight(),
         right: SSizes.defaultSpace,
         child: TextButton(
-          onPressed: ()  => OnBoardingController.instance.skipPage(),
+          onPressed: () {
+            OnBoardingController.instance.skipPage();
+            
+          },
           child: const Text('Skip'),
         ));
   }

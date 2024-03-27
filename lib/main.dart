@@ -15,7 +15,7 @@ await Firebase.initializeApp(
   options: DefaultFirebaseOptions.currentPlatform,
 );
   
-  runApp(const SApp());
+  runApp(SApp());
 }
 
 

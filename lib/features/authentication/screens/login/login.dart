@@ -73,7 +73,7 @@ class SLoginHeader extends StatelessWidget {
   }
 }
 
-class SLoginForm extends StatelessWidget {
+class SLoginForm extends GetWidget<AuthController> {
   SLoginForm({
     super.key,
   });
@@ -150,32 +150,34 @@ class SLoginForm extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        try {
-                          var credential = await AuthController().signUser(
-                              _emailController.text, _passwordController.text);
-                          // print(credential);
-                          if (credential != null) {
-                            Get.to(() => const NavigationMenu());
-                          } else {
-                            ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                backgroundColor: Colors.red,
-                                content: Text('Incorrect User Details')),
-                          );
-                          }
-                        } on AuthException {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              backgroundColor: Colors.red,
-                                content: Text("Authentication Error")),
-                          );
-                        } on Exception {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                                backgroundColor: Colors.red,
-                                content: Text('Error Validating User')),
-                          );
-                        }
+                        controller.signUser(
+                            _emailController.text, _passwordController.text);
+                        // try {
+                        //   var credential = await AuthController().signUser(
+                        //       _emailController.text, _passwordController.text);
+                        //   // print(credential);
+                        //   if (credential != null) {
+                        //     Get.to(() => const NavigationMenu());
+                        //   } else {
+                        //     ScaffoldMessenger.of(context).showSnackBar(
+                        //     const SnackBar(
+                        //         backgroundColor: Colors.red,
+                        //         content: Text('Incorrect User Details')),
+                        //   );
+                        //   }
+                        // } on AuthException {
+                        //   ScaffoldMessenger.of(context).showSnackBar(
+                        //     const SnackBar(
+                        //       backgroundColor: Colors.red,
+                        //         content: Text("Authentication Error")),
+                        //   );
+                        // } on Exception {
+                        //   ScaffoldMessenger.of(context).showSnackBar(
+                        //     const SnackBar(
+                        //         backgroundColor: Colors.red,
+                        //         content: Text('Error Validating User')),
+                        //   );
+                        // }
                       }
                     },
                     child: const Text(SText.signIn))),
