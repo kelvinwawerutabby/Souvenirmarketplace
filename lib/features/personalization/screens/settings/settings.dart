@@ -2,6 +2,7 @@ import 'package:eccomerceapp/common/style/section_heading.dart';
 import 'package:eccomerceapp/common/widgets/appbar/appbar.dart';
 import 'package:eccomerceapp/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:eccomerceapp/common/widgets/list_tiles/settings_menu_tile.dart';
+import 'package:eccomerceapp/features/shop/screens/order/order.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -62,10 +63,10 @@ class SettingScreen extends StatelessWidget {
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart',
                       subTitle: 'Add, remove products and move to checkout'),
-                  const SSettingsMenuTile(
+                  SSettingsMenuTile(
                       icon: Iconsax.bag_tick,
                       title: 'My Orders',
-                      subTitle: 'In-progress and Completed Orders'),
+                      subTitle: 'In-progress and Completed Orders',onTap: ()=> Get.to (() => const OrderScreen() ),),
                   const SSettingsMenuTile(
                       icon: Iconsax.bank,
                       title: 'Bank Account',
