@@ -93,9 +93,9 @@ class SLoginForm extends StatelessWidget {
             ///Email
             TextFormField(
               controller: _emailController,
-              decoration: InputDecoration(
-                  prefixIcon: const Icon(Iconsax.direct_right),
-                  label: const Text("Email"),
+              decoration: const InputDecoration(
+                  prefixIcon: Icon(Iconsax.direct_right),
+                  // label: const Text("Email"),
                   labelText: SText.email),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -110,10 +110,10 @@ class SLoginForm extends StatelessWidget {
             TextFormField(
               controller: _passwordController,
               obscureText: true,
-              decoration: InputDecoration(
-                  label: const Text("Password"),
-                  prefixIcon: const Icon(Iconsax.password_check),
-                  suffixIcon: const Icon(Iconsax.eye_slash),
+              decoration: const InputDecoration(
+                  // label: const Text("Password"),
+                  prefixIcon: Icon(Iconsax.password_check),
+                  suffixIcon: Icon(Iconsax.eye_slash),
                   labelText: SText.password),
               validator: (value) {
                 if (value == null || value.isEmpty) {
@@ -150,21 +150,32 @@ class SLoginForm extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
-                        try{
-                         var credential= await AuthController().signUser(
+                        try {
+                          var credential = await AuthController().signUser(
                               _emailController.text, _passwordController.text);
-                              Get.to(() => const NavigationMenu());
-                        } on  AuthException{
-                           ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(content: Text("Authentication Error")),
+                          // print(credential);
+                          if (credential != null) {
+                            Get.to(() => const NavigationMenu());
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                backgroundColor: Colors.red,
+                                content: Text('Incorrect User Details')),
                           );
-                        } on Exception{
-                           ScaffoldMessenger.of(context).showSnackBar(
-                              const SnackBar(content: Text('Error Validating User')),
-                            );
+                          }
+                        } on AuthException {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                              backgroundColor: Colors.red,
+                                content: Text("Authentication Error")),
+                          );
+                        } on Exception {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                            const SnackBar(
+                                backgroundColor: Colors.red,
+                                content: Text('Error Validating User')),
+                          );
                         }
-
-                      
                       }
                     },
                     child: const Text(SText.signIn))),
