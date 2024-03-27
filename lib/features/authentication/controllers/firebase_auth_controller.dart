@@ -1,8 +1,6 @@
-import 'dart:async';
 
-import 'package:eccomerceapp/utils/exceptions/auth_exceptions.dart';
+import 'package:eccomerceapp/navigation_menu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
@@ -80,7 +78,7 @@ class AuthController extends GetxController {
     try {
       await _auth.signInWithEmailAndPassword(
           email: emailAddress, password: password);
-      
+      Get.to(() => const NavigationMenu());
     } catch (e) {
       Get.snackbar("Error Login In", e.toString(),
           snackPosition: SnackPosition.TOP, backgroundColor: Colors.red);

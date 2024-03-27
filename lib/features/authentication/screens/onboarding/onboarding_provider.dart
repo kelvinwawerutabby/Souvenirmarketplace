@@ -7,7 +7,7 @@ class OnBoardingControllerProvider extends GetxController {
   bool get doneTour => toured;
   void validDoneTour() async {
     final SharedPreferences prefs = await _prefs;
-    var touredv = prefs.getInt('counter') ?? 0;
+    var touredv = prefs.getInt('tour') ?? 0;
     if (touredv == 1) {
       toured = true;
     }

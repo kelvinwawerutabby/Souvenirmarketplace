@@ -6,6 +6,7 @@ import 'package:eccomerceapp/utils/constants/colors.dart';
 import 'package:eccomerceapp/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../../common/widgets/chips/choice_chip.dart';
 import '../../../../../utils/constants/sizes.dart';
 
 class SProductAttributes extends StatelessWidget {
@@ -28,9 +29,10 @@ class SProductAttributes extends StatelessWidget {
                   const SSectionHeading(
                       title: 'Variation', showActionButton: false),
                   const SizedBox(width: SSizes.spaceBtwItems),
-                  Column(
+                  const Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const SProductTitleText(title: 'price', smallSize: true),
+                      SProductTitleText(title: 'price', smallSize: true),
                     ],
                   ),
 
@@ -45,16 +47,87 @@ class SProductAttributes extends StatelessWidget {
                             .apply(decoration: TextDecoration.lineThrough),
                       ),
                       const SizedBox(width: SSizes.spaceBtwItems),
+
                       /// Sale Price
                       const SProductPriceText(price: '20')
                     ],
+                  ),
+
+                  /// Stock
+                  Row(
+                    children: [
+                      const SProductTitleText(title: 'Stock:', smallSize: true),
+                      Text(
+                        'In Stock',
+                        style: Theme.of(context).textTheme.titleMedium,
+                      )
+                    ],
                   )
                 ],
-              )
+              ),
+
+              /// Variation description
+              const SProductTitleText(
+                  title:
+                      'This is the description of the product and it can go up to max 4 lines.',
+                  smallSize: true,
+                  maxLines: 4),
             ],
           ),
-        )
+        ),
+        const SizedBox(height: SSizes.spaceBtwItems),
+
+        /// Attributes
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const SSectionHeading(title: 'Colors', showActionButton: false,),
+            const SizedBox(height: SSizes.spaceBtwItems / 2),
+            Wrap(
+              spacing: 8,
+              children: [
+                SChoiceChip(text: 'Green', selected: true, onSelected: (value){}),
+                SChoiceChip(text: 'Blue', selected: false, onSelected: (value){}),
+                SChoiceChip(text: 'Yellow', selected: false, onSelected: (value){}),
+              ],
+            )
+          ],
+        ),
+        Column(
+          children: [
+            const SSectionHeading(title: 'Sizes'),
+            const SizedBox(height: SSizes.spaceBtwItems / 2),
+            Wrap(
+              spacing: 8,
+              children: [
+                SChoiceChip(text: 'EU 34', selected: true, onSelected: (value){}),
+                SChoiceChip(text: 'EU 36', selected: false, onSelected: (value){}),
+                SChoiceChip(text: 'EU 38', selected: false, onSelected: (value){}),
+                SChoiceChip(text: 'EU 34', selected: true, onSelected: (value){}),
+                SChoiceChip(text: 'EU 36', selected: false, onSelected: (value){}),
+                SChoiceChip(text: 'EU 38', selected: false, onSelected: (value){}),
+              ],
+            )
+          ],
+        ),
+        Column(
+          children: [
+            const SSectionHeading(title: 'Colors'),
+            const SizedBox(height: SSizes.spaceBtwItems / 2),
+            Wrap(
+              spacing: 8,
+              children: [
+                SChoiceChip(text: 'Green', selected: true, onSelected: (value){}),
+                SChoiceChip(text: 'Blue', selected: false, onSelected: (value){}),
+                SChoiceChip(text: 'Yellow', selected: false, onSelected: (value){}),
+              ],
+            )
+          ],
+        ),
+
       ],
     );
   }
 }
+
+
