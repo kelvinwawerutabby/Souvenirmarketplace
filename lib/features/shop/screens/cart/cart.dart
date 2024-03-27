@@ -22,18 +22,23 @@ class CartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: SAppBar(
-            showBackArrow: true,
-            title:
-                Text('Cart', style: Theme.of(context).textTheme.headlineSmall)),
-        body: const Padding(
+      appBar: SAppBar(
+          showBackArrow: true,
+          title:
+              Text('Cart', style: Theme.of(context).textTheme.headlineSmall)),
+      body: const Padding(
           padding: EdgeInsets.all(SSizes.defaultSpace),
-          child: SCartItem()
-        ),
-        bottomNavigationBar: Padding(
-          padding: const EdgeInsets.all(SSizes.defaultSpace),
-          child:
-              ElevatedButton(onPressed: () => Get.to(() => const CheckoutScreen()), child: const Text('CheckOut \$256')),
-        ));
+
+          /// -- Items in Cart
+          child: SCartItem()),
+
+      /// Checkout Button
+      bottomNavigationBar: Padding(
+        padding: const EdgeInsets.all(SSizes.defaultSpace),
+        child: ElevatedButton(
+            onPressed: () => Get.to(() => const CheckoutScreen()),
+            child: const Text('CheckOut \$256')),
+      ),
+    );
   }
 }
