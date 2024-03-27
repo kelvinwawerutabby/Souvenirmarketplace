@@ -41,7 +41,7 @@ class SBillingPaymentSection extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text('Order Total', style: Theme.of(context).textTheme.bodyMedium),
-            Text('\$ 6', style: Theme.of(context).textTheme.bodyMedium),
+            Text('\$ 6', style: Theme.of(context).textTheme.titleMedium),
           ],
         ),
         const SizedBox(height: SSizes.spaceBtwItems / 2),
