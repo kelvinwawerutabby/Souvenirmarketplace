@@ -4,6 +4,8 @@ import 'package:intl/intl.dart';
 
 class SHelperFunctions{
   static Color? getColor(String value){
+    /// Define your product specific colors here and it will match the attribute colors and show specific
+
     if(value == 'Green'){
       return Colors.green;
     } else if(value == 'Green'){
@@ -21,7 +23,17 @@ class SHelperFunctions{
     } else if(value == 'Black'){
       return Colors.black;
     } else if(value == 'white'){
-
+      return Colors.white;
+    } else if(value == 'Yellow'){
+      return Colors.yellow;
+    } else if(value == 'Orange'){
+      return Colors.orange;
+    }else if(value == 'Brown'){
+      return Colors.brown;
+    }else if(value == 'Teal'){
+      return Colors.teal;
+    }else if(value == 'Indigo'){
+      return Colors.indigo;
     }
   }
 

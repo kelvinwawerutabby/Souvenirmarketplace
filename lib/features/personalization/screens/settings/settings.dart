@@ -9,6 +9,7 @@ import 'package:iconsax/iconsax.dart';
 import '../../../../common/widgets/list_tiles/user_profile_tile.dart';
 import '../../../../utils/constants/colors.dart';
 import '../../../../utils/constants/sizes.dart';
+import '../address/address.dart';
 import '../profile/profile.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -53,10 +54,10 @@ class SettingScreen extends StatelessWidget {
                       buttonTitle: ''),
                   const SizedBox(height: SSizes.spaceBtwItems),
 
-                  const SSettingsMenuTile(
+                  SSettingsMenuTile(
                       icon: Iconsax.safe_home,
                       title: 'My Addresses',
-                      subTitle: 'Set shopping delivery address'),
+                      subTitle: 'Set shopping delivery address',onTap: () => Get.to (() => const UserAddressScreen()),),
                   const SSettingsMenuTile(
                       icon: Iconsax.shopping_cart,
                       title: 'My Cart',
