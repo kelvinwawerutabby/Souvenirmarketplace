@@ -6,17 +6,17 @@ import 'package:get/get.dart';
 
 class CartController extends GetxController {
   FirebaseFirestore db = FirebaseFirestore.instance;
-  late List cart;
+  List cart = [];
   double totalPrice = 0.0;
 
   double get cartTotalPrice => totalPrice;
   List get cartItems => cart;
 
-  @override
-  void onInit() {
-    super.onInit();
-    cart = [];
-  }
+  // @override
+  // void onInit() {
+  //   super.onInit();
+  //   cart = [];
+  // }
 
   void addItem(item) {
     final existItem = cart.indexWhere((element) => element["id"] == item['id']);
