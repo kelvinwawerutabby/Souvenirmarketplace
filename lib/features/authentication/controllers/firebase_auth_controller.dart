@@ -55,7 +55,7 @@ class AuthController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   late final Rx<User?> _firebaseUser;
 
-  String? get auth_user => _firebaseUser.value?.email;
+  User? get auth_user => _firebaseUser.value;
 
   @override
   void onInit() {
