@@ -1,5 +1,6 @@
 import 'package:eccomerceapp/common/widgets/custom_shapes/containers/curved_edges/rounded_container.dart';
 import 'package:eccomerceapp/features/authentication/screens/success_screen/success_screen.dart';
+import 'package:eccomerceapp/features/shop/controllers/cart_controller.dart';
 import 'package:eccomerceapp/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:eccomerceapp/features/shop/screens/checkout/widgets/billing_address_section.dart';
 import 'package:eccomerceapp/features/shop/screens/checkout/widgets/billing_amount_section.dart';
@@ -75,16 +76,16 @@ class CheckoutScreen extends StatelessWidget {
       /// Checkout Button
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(SSizes.defaultSpace),
-        child: ElevatedButton(
-            onPressed: () => Get.to(
-                  () => SuccessScreen(
-                    image: SImages.onBoardingImage1,
-                    title: 'Payment Success!',
-                    subTitle: 'Your item will be shipped soon!',
-                    onPressed: () => Get.offAll(() => const NavigationMenu()),
-                  ),
-                ),
-            child: const Text('Checkout \$256.0')),
+        child: GetBuilder<CartController>(
+          init: CartController(),
+          builder: (controller) {
+            return ElevatedButton(
+                onPressed: () {
+                  controller.placeOrder();
+                },
+                child: const Text('Checkout \$256.0'));
+          },
+        ),
       ),
     );
   }

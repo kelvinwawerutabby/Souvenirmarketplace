@@ -12,16 +12,16 @@ class SApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final OnBoardingControllerProvider c =
-        Get.put(OnBoardingControllerProvider());
     return GetMaterialApp(
         initialBinding: AuthBinding(),
         themeMode: ThemeMode.system,
         theme: SAppTheme.lightTheme,
         darkTheme: SAppTheme.darkTheme,
+        debugShowCheckedModeBanner: false,
         // home: const OnBoardingScreen(),
         home: GetBuilder<OnBoardingControllerProvider>(
-          builder: (_) {
+          init: OnBoardingControllerProvider(),
+          builder: (c) {
           if (c.doneTour) {
             return SSRoot();
           } else {

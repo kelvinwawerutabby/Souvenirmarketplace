@@ -1,8 +1,10 @@
 import 'package:eccomerceapp/common/widgets/custom_shapes/containers/circular_container.dart';
 import 'package:eccomerceapp/common/widgets/icons/s_circular_icon.dart';
+import 'package:eccomerceapp/features/shop/controllers/cart_controller.dart';
 import 'package:eccomerceapp/utils/constants/sizes.dart';
 import 'package:eccomerceapp/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 
 import '../../../../../utils/constants/colors.dart';
@@ -44,13 +46,25 @@ class SBottomAddToCart extends StatelessWidget {
                   color: SColors.white),
             ],
           ),
-          ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                padding: const EdgeInsets.all(SSizes.md),
-                backgroundColor: SColors.black,
-              ),
-              child: const Text('Add to Cart'))
+          GetBuilder<CartController>(
+              init: CartController(),
+              builder: (cxt) {
+                return ElevatedButton(
+                    onPressed: () {
+                      var item = {
+                        "id": 202428,
+                        "name": "Pizza",
+                        "quantity": 0,
+                        "price": 20.0
+                      };
+                      cxt.addItem(item);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      padding: const EdgeInsets.all(SSizes.md),
+                      backgroundColor: SColors.black,
+                    ),
+                    child: const Text('Add to Cart'));
+              })
         ],
       ),
     );

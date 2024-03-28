@@ -1,4 +1,6 @@
+import 'package:eccomerceapp/features/shop/controllers/cart_controller.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../../common/widgets/texts/product_price_text.dart';
 import '../../../../../utils/constants/sizes.dart';
@@ -12,38 +14,43 @@ class SCartItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  ListView.separated(
-      shrinkWrap: true,
-      itemCount: 2,
-      separatorBuilder: (_, __) => const SizedBox(
-        height: SSizes.spaceBtwSections,
-      ),
-      itemBuilder: (_, index) =>  Column(
-        children: [
-          /// Cart Item
-          SCartItem(),
-          if(showAddRemoveButtons)
-          SizedBox(height: SSizes.spaceBtwItems),
-
-          /// Add Remove Button Row with total Price
-          if(showAddRemoveButtons)
-          const Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return  GetBuilder<CartController>(
+      init: CartController(),
+      builder: (cxt) {
+        return ListView.separated(
+          shrinkWrap: true,
+          itemCount: cxt.cart.length,
+          separatorBuilder: (_, __) => const SizedBox(
+            height: SSizes.spaceBtwSections,
+          ),
+          itemBuilder: (_, index) =>  Column(
             children: [
-              Row(
+              /// Cart Item
+              SCartItem(),
+              if(showAddRemoveButtons)
+              SizedBox(height: SSizes.spaceBtwItems),
+        
+              /// Add Remove Button Row with total Price
+              if(showAddRemoveButtons)
+              const Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  /// Extra Space
-                  SizedBox(width: 70),
+                  Row(
+                    children: [
+                      /// Extra Space
+                      SizedBox(width: 70),
+                    ],
+                  ),
+        
+                  /// Add Remove button
+                  SProductQuantityWithAddRemoveButton(),
+                  SProductPriceText(price: '256')
                 ],
-              ),
-
-              /// Add Remove button
-              SProductQuantityWithAddRemoveButton(),
-              SProductPriceText(price: '256')
+              )
             ],
-          )
-        ],
-      ),
+          ),
+        );
+      }
     );
   }
 }

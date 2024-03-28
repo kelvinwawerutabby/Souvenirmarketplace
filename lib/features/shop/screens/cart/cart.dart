@@ -1,19 +1,10 @@
 import 'package:eccomerceapp/common/widgets/appbar/appbar.dart';
-import 'package:eccomerceapp/common/widgets/icons/s_circular_icon.dart';
-import 'package:eccomerceapp/common/widgets/images/s_rounded_image.dart';
-import 'package:eccomerceapp/common/widgets/texts/product_price_text.dart';
-import 'package:eccomerceapp/common/widgets/texts/product_title_text.dart';
-import 'package:eccomerceapp/common/widgets/texts/s_brand_title_text_with_verified_icon.dart';
-import 'package:eccomerceapp/features/shop/screens/cart/widgets/add_remove_button.dart';
 import 'package:eccomerceapp/features/shop/screens/cart/widgets/cart_item.dart';
+import 'package:eccomerceapp/features/shop/screens/cart/widgets/cart_items.dart';
 import 'package:eccomerceapp/features/shop/screens/checkout/checkout.dart';
-import 'package:eccomerceapp/utils/helpers/helper_functions.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 
-import '../../../../utils/constants/colors.dart';
-import '../../../../utils/constants/image_strings.dart';
 import '../../../../utils/constants/sizes.dart';
 
 class CartScreen extends StatelessWidget {
@@ -30,7 +21,7 @@ class CartScreen extends StatelessWidget {
           padding: EdgeInsets.all(SSizes.defaultSpace),
 
           /// -- Items in Cart
-          child: SCartItem()),
+          child: SCartItems()),
 
       /// Checkout Button
       bottomNavigationBar: Padding(

@@ -3,7 +3,6 @@ import 'package:eccomerceapp/navigation_menu.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 // class AuthController {
 //   void isLoggedInUser() {
@@ -68,6 +67,8 @@ class AuthController extends GetxController {
     try {
       await _auth.createUserWithEmailAndPassword(
           email: emailAddress, password: password);
+          Get.snackbar("Creating Account","Successfully Created Account,redirection Login",
+          snackPosition: SnackPosition.TOP, backgroundColor: Colors.green);
     } catch (e) {
       Get.snackbar("Error Creating Account", e.toString(),
           snackPosition: SnackPosition.TOP, backgroundColor: Colors.red);
@@ -78,6 +79,8 @@ class AuthController extends GetxController {
     try {
       await _auth.signInWithEmailAndPassword(
           email: emailAddress, password: password);
+           Get.snackbar("SignIn Account","Successfully Logged IN",
+          snackPosition: SnackPosition.TOP, backgroundColor: Colors.green);
       Get.to(() => const NavigationMenu());
     } catch (e) {
       Get.snackbar("Error Login In", e.toString(),
